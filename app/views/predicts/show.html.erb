@@ -1,3 +1,82 @@
-OUUUUU
-<br>
-<%= @label %>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Shuffle — Project Preview</title>
+
+  <link rel="stylesheet" id="bs-base-fonts">
+  <link rel="stylesheet" href="/vendor/bulma/bulma-0-9-0.min.css" id="bs-base-css">
+  <style type="text/css" id="bs-recompiled-css"></style>
+  <link rel="stylesheet" href="/vendor/icons/css/fontello.css?v=h7b">
+  <link rel="stylesheet" href="/static/build/css/shuffle-preview.1b974522.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendor/shuffle/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendor/shuffle/favicon/favicon-16x16.png">
+  <script src="/vendor/bulma/main.js"></script>
+</head>
+<body id="page">
+<div class="container is-fluid" id="content">
+
+  <section data-section-id="1" data-category="headers" data-component-id="c37c_2_01_awz" class="hero">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-spaced text_bg" data-config-id="header" style="margin-top: 5%;">ReportIFY</h1>
+        <h2 class="subtitle text_bg" data-config-id="description">Decentralized, fakey, untrustworthy, pirates, stealing... and so on and so forth. We're here to make your Web sailling safer.</h2>
+        <div class="buttons is-centered"><a class="control button is-primary" href="#" data-config-id="secondary-action">Read more</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section-id="3" data-category="contacts" data-component-id="c37c_10_01_awz" class="section">
+    <div class="container py-4">
+      <h2 class="title has-text-centered mb-6 text_bg" data-config-id="header"><%= link_to "Check another article!", predicts_path, method: :get %></h2>
+      <div class="columns">
+        <div class="column is-8 is-offset-1" style="margin-left: 25%; margin-right: 25%; max-width: 50%;">
+          <div class="card" style="background-color: #<%= color_of_result(@label) %>">
+            <div class="card-content">
+              <div class="content" style="margin-left: 45%; margin-right: 45%">
+                <%= @label %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section-id="4" data-category="call-to-action" data-component-id="c37c_18_03_awz" class="section">
+    <div class="container has-text-centered">
+      <h2 class="title is-spaced" data-config-id="header">Fake or not fake.</h2>
+      <p class="subtitle" data-config-id="description">Help be the force leading people to trustworthy information.</p>
+      <div class="buttons is-centered mt-6 mb-6"><a class="button is-primary" href="#" data-config-id="primary-action">Join the Revolution!</a></div>
+      <h3 class="title is-5" data-config-id="list-title">Great Companies that already use ReportIFY</h3>
+      <div class="columns px-6">
+        <div class="column px-5"><%= image_tag "citri.png", class: "maxy_logo" %></div>
+        <div class="column px-5"><%= image_tag "gamehub.png", class: "maxy_logo" %></div>
+        <div class="column px-5"><%= image_tag "logob.png", class: "maxy_logo" %></div>
+        <div class="column px-5"><%= image_tag "purefood.png", class: "maxy_logo" %></div>
+        <div class="column px-5"><%= image_tag "zoom.png", class: "maxy_logo" %></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    var links = document.getElementsByTagName('a');
+    for(var i = 0; i < links.length; i += 1) {
+        if (!links[i].classList.contains('bs-link')) {
+            links[i].addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+        }
+    }
+
+    var forms = document.getElementsByTagName('form');
+    for(var i = 0; i < forms.length; i += 1) {
+        forms[i].addEventListener('submit', function(e) {
+            e.preventDefault();
+        }, true);
+    }
+</script>
+</body>

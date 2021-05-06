@@ -5,7 +5,6 @@ class PredictsController < ApplicationController
 
   def calculate_and_predict
     session[:label] = predict_news(params[:description])
-    binding.pry
     redirect_to show_path
   end
 
@@ -22,6 +21,7 @@ class PredictsController < ApplicationController
   PREDICTS_URL = 'https://news-reportify.herokuapp.com/news/'
 
   def parse_body(description)
+    description = I18n.transliterate(description)
     description.split(' ').join('%20')
   end
 
