@@ -4,12 +4,13 @@ class PredictsController < ApplicationController
   def index; end
 
   def calculate_and_predict
-    session[:label] = predict_news(params[:description])
+    session[:label], session[:probability] = predict_news(params[:description])
     redirect_to show_path
   end
 
   def show
     @label = session[:label]
+    @probability = session[:probability]
   end
 
   private
@@ -18,7 +19,7 @@ class PredictsController < ApplicationController
     @label
   end
 
-  PREDICTS_URL = 'https://news-reportify.herokuapp.com/news/'
+  PREDICTS_URL = 'http://0.0.0.0:90/news/'.freeze#'https://news-reportify.herokuapp.com/news/'.freeze
 
   def parse_body(description)
     description = I18n.transliterate(description)
@@ -26,17 +27,17 @@ class PredictsController < ApplicationController
   end
 
   def predict_news(description)
-      url = URI.parse(PREDICTS_URL + parse_body(description))
-      req = Net::HTTP::Get.new(url.to_s)
-      res = Net::HTTP.start(url.host) do |http|
-        http.request(req)
-      end
-
-      label = JSON.parse(res.body)
-      if label['article_label'].to_i.zero?
-        "True"
-      else
-        "Fake"
-      end
+    url = URI.parse(PREDICTS_URL + parse_body(description))
+    req = Net::HTTP::Get.new(url.to_s)
+    res = Net::HTTP.start(url.host) do |http|
+      http.request(req)
     end
+
+    label = JSON.parse(res.body)
+    if label['article_label'] == 'TRUE'
+      ['True', label['probability']]
+    else
+      ['Fake', label['probability']]
+    end
+  end
 end
